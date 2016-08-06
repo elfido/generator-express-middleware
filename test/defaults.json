@@ -1,0 +1,7 @@
+{
+    "servicename": "serviceexample",
+    "description": "This is a sample service`",
+    "coderepository": "here",
+    "author": "FidoBuilder",
+    "version": "1.0.0"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "<%= servicename %>",
+  "version": "<%= version %>",
+  "description": "<%= description %>",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "<%= coderepository %>"
+  },
+  "keywords": [
+    "Middleware",
+    "expressjs"
+  ],
+  "author": "<%= author %>",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "express": "^4.14.0",
+    "gulp": "^1.0.1",
+    "gult-bump": "^0.8.0",
+    "gulp-jshint": "^1.0.0",
+    "gulp-mocha-test": "^0.12.7",
+    "mocha": "^3.0.0",
+    "supertest": "^2.0.0"
+  },
+  "dependencies": {
+    
+  }
+}
