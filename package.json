@@ -1,0 +1,28 @@
+{
+  "name": "express-middleware-generator",
+  "version": "1.0.0",
+  "description": "Yeoman generator for ExpressJS middleware in ES6 (Requires at least Node 4)",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elfido/express-middleware-generator.git"
+  },
+  "keywords": [
+    "express",
+    "expressjs",
+    "middleware",
+    "yeoman",
+    "generator",
+    "es6",
+    "scaffolding"
+  ],
+  "author": "Fido <fidencio.garrido@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elfido/express-middleware-generator/issues"
+  },
+  "homepage": "https://github.com/elfido/express-middleware-generator#readme"
+}
