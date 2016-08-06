@@ -42,5 +42,5 @@ Example
 ```bash
 > ls
 project.json
-> yo express-middleware
+> yo express-middleware --usefile
 ```
