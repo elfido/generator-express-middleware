@@ -2,6 +2,8 @@
 var gulp = require("gulp"),
 	jshint = require("gulp-jshint"),
 	bump = require("gulp-bump"),
+	exec = require("gulp-exec"),
+	fs = require("fs"),
 	mocha = require('gulp-mocha');
 
 gulp.task("test", function(cb){
@@ -23,12 +25,15 @@ gulp.task("jshint", function() {
 	.pipe(jshint.reporter("default"));
 });
 
-gulp.task('bump', function(){
+gulp.task("bump", function(){
 	let type = generatorHelpers.getBumpOption();
-	console.log(type);
-	gulp.src('./package.json')
+	gulp.src("./package.json")
 	.pipe(bump( type ))
 	.pipe(gulp.dest('./'));
+});
+
+gulp.task("gittag", function(){
+	let info = fs.readFileSync("package.json");
 });
 
 var generatorHelpers = {

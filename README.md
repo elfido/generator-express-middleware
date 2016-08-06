@@ -45,7 +45,15 @@ project.json
 > yo express-middleware --usefile
 ```
 
+## Gulp Tasks (Developer info)
+
+### Code hint
+```sh
+gulp jshint
+```
+
 ### Bumping version
+Automatically updates ```package.json```, creates a git tag and pushes. **
 
 Patch (bumps 0.0.1 to 0.0.2)
 ```sh

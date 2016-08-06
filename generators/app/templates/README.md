@@ -39,7 +39,13 @@ app.listen(8080, function(){
 
 
 ## Developers info
+### Code hint
+```sh
+gulp jshint
+```
+
 ### Bumping version
+Automatically updates ```package.json```, creates a git tag and pushes. **Requires git installed locally**
 
 Patch (bumps 0.0.1 to 0.0.2)
 ```sh
