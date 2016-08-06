@@ -19,7 +19,7 @@ gulp.task("test", function(cb){
 	});
 });
 
-gulp.task("bump", function(){
+gulp.task("bump", ["gittag"], function(){
 	let type = generatorHelpers.getBumpOption();
 	gulp.src("./package.json")
 	.pipe(bump( type ))
@@ -46,9 +46,6 @@ var generatorHelpers = {
 	bumpParams: ["--patch", "--minor", "--major", "--prerelease"],
 	run: function(cmd, cb){
 		exec(cmd, function(err, stdout, stderr){
-			
-			console.log(stdout);
-			console.log(stderr);
 			if(!err){
 				cb();
 			} else{
