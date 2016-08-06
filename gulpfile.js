@@ -30,7 +30,7 @@ gulp.task("gittag", function(){
 	let info = JSON.parse(fs.readFileSync("package.json")),
 		add = `git add . && git commit -m "Adding delta files before release"`,
 		commit = `git tag -a v${info.version} -m "Tag ${info.version}"`,
-		push = "git push -u origin master";
+		push = `git push origin v${info.version}`;
 	generatorHelpers.run(add, function(){
 		console.log("Adding all pending files");
 		generatorHelpers.run(commit, function(){
