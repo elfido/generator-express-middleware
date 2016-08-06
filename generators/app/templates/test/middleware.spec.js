@@ -1,3 +1,4 @@
+/* globals describe, before, after, it */
 "use strict";
 
 var server = require("./server"),

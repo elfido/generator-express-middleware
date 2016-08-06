@@ -2,16 +2,31 @@
 
 var defaultOptions = {
 		// your default options
-	};
+	},
+	options = {};
 
 var aux = {
 	// custom aux functions	
+	
+	/**
+	 * Initializes middleware state
+	 *
+	 */
+	init: function(options){
+		if (typeof options === "object"){
+			options = Object.assign(options, defaultOptions);
+		}
+	}
 };
 
-function <%= servicename %>(){
+function <%= servicename %>(options){
 	// Initialize default values from configuration
-	aux.init();
+	aux.init(options);
 	
+	/**
+	 * <%= description %>
+	 *
+	 */
 	return function(req, res, next){
 		//Your custom logic
 		next();
