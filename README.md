@@ -1,8 +1,8 @@
 # express-middleware-generator
-Yeoman generator for ExpressJS middleware in ES6 (Requires at least Node 4)
+Yeoman generator for ExpressJS middleware in ES6 (Requires at least Node 4 to work or Node 5 to test)
 
 ## Requirements
-* Node 4 and above
+* **Node 5** or above
 * Gulp ```npm install -g gulp-cli```
 
 ## Features
@@ -43,4 +43,26 @@ Example
 > ls
 project.json
 > yo express-middleware --usefile
+```
+
+### Bumping version
+
+Patch (bumps 0.0.1 to 0.0.2)
+```sh
+gulp bump
+```
+
+Minor (bumps 0.0.1 to 0.1.0)
+```sh
+gulp bump --minor
+```
+
+Major (bumps 0.0.1 to 1.0.0)
+```sh
+gulp bump --major
+```
+
+Custom version (bumps to 3.0.0)
+```sh
+gulp bump --version:3.0.0
 ```

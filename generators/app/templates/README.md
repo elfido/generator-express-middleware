@@ -36,3 +36,27 @@ app.listen(8080, function(){
 ```
 
 ## Options
+
+
+## Developers info
+### Bumping version
+
+Patch (bumps 0.0.1 to 0.0.2)
+```sh
+gulp bump
+```
+
+Minor (bumps 0.0.1 to 0.1.0)
+```sh
+gulp bump --minor
+```
+
+Major (bumps 0.0.1 to 1.0.0)
+```sh
+gulp bump --major
+```
+
+Custom version (bumps to 3.0.0)
+```sh
+gulp bump --version:3.0.0
+```
