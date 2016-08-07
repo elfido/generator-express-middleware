@@ -23,6 +23,8 @@
     "gulp-bump": "^2.2.0",
     "gulp-jshint": "^2.0.1",
     "gulp-mocha": "^3.0.0",
+    "gulp-watch": "^4.3.9",
+    "jshint": "^2.9.2",
     "mocha": "^3.0.0",
     "supertest": "^2.0.0"
   },

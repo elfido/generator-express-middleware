@@ -1,6 +1,6 @@
 {
   "name": "generator-express-middleware",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "Yeoman generator for ExpressJS middleware in ES6 (Requires at least Node 4)",
   "main": "index.js",
   "scripts": {
@@ -34,8 +34,10 @@
     "gulp": "^3.9.1",
     "gulp-bump": "^2.2.0",
     "gulp-exec": "^2.1.2",
+    "gulp-jshint": "^2.0.1",
     "gulp-mocha": "^3.0.0",
     "gulp-watch": "^4.3.9",
+    "jshint": "^2.9.2",
     "supertest": "^2.0.0"
   }
 }
