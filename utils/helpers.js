@@ -1,7 +1,7 @@
 "use strict";
 var exec = require("child_process").exec,
-	info: JSON.parse(fs.readFileSync("package.json")),
-	fs = require("fs");
+	fs = require("fs"),
+	info = JSON.parse(fs.readFileSync("package.json"));
 
 var Helpers = {
 	bumpParams: ["--patch", "--minor", "--major", "--prerelease"],
