@@ -50,7 +50,7 @@ var generatorHelpers = {
 		}
 		return res;
 	}
-}
+};
 
 gulp.task("livetest", function(){
 	return watch(["test/**/*.spec.js", "index.js"], {})

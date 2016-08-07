@@ -26,12 +26,6 @@ describe("When executing Yeoman with a default configuration", function () {
 	
 	before(function(){
 		printCwd();
-		exec('npm unlink && npm link', (error, stdout, stderr) => {
-			if (error) {
-				console.error(`exec error: ${error}`);
-				return;
-			}
-		});
 		tmpFolder = fs.mkdtempSync( tmpFolder );
 		fs.writeFileSync(tmpFolder+"/project.json", JSON.stringify(defaultConfig), "utf8");
 		console.log(`Temp folder ${tmpFolder}`);

@@ -5,7 +5,7 @@ var gulp = require("gulp"),
 	fs = require("fs"),
 	jshint = require("gulp-jshint"),
 	watch = require("gulp-watch"),
-	mocha = require('gulp-mocha');
+	mocha = require("gulp-mocha");
 
 var generatorHelpers = {
 	bumpParams: ["--patch", "--minor", "--major", "--prerelease"],
@@ -59,7 +59,7 @@ gulp.task("livetest", function(){
 
 gulp.task("test", function(cb){
 	let mochaErr ;
-	gulp.src('test/**/*.js')
+	gulp.src("test/**/*.js")
 	.pipe(mocha({reporter: "spec", timeout: 60000}))
 	.on("error", function (err) {
 		console.log(err);
