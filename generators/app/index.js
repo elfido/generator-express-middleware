@@ -1,36 +1,18 @@
 "use strict";
 
 var generators = require("yeoman-generator"),
-	inquirer = require('inquirer'),
+	inquirer = require("inquirer"),
 	fs = require("fs");
 
 module.exports = generators.Base.extend({
 	
-	constructor: function(){
+	constructor (){
 		generators.Base.apply(this, arguments);
 		this.project = {};
 		this.option("usefile");
 	},
 	
-	_prompt: function(){
-		return this.prompt([{
-			type    : 'input',
-			name    : 'name',
-			message : 'Your project name',
-			default : this.appname 
-		}, {
-			type    : 'confirm',
-			name    : 'cool',
-			message : 'Would you like to enable the Cool feature?'
-		}]).then(function (answers) {
-			this.log('app name', answers.name);
-			this.log('cool feature', answers.cool);
-		}.bind(this), function(error){
-			console.log(error);
-		});
-	},
-	
-	readProjectInfo: function(){
+	readProjectInfo (){
 		if (this.options.usefile){
 			let file = fs.readFileSync("project.json", "utf8");
 			this.project = JSON.parse(file);
@@ -71,7 +53,7 @@ module.exports = generators.Base.extend({
 		}
 	},
 	
-	_execute: function(){
+	_execute (){
 		let paths = ["**/*.*", "**/*", "**/.*"];
 		
 		for (let p of paths){

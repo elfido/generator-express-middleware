@@ -13,7 +13,7 @@ describe("Scenario: ", function(){
 	});
 	
 	after(function(){
-	   app.close(); 
+		app.close(); 
 	});
 	
 	describe("When <replace for some condition>", function(){
