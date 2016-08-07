@@ -5,23 +5,34 @@ var exec = require("child_process").exec,
 
 var Helpers = {
 	bumpParams: ["--patch", "--minor", "--major", "--prerelease"],
-	add(){
-		return new Promise(function(resolve,reject){
-			let add = `git add . && git commit -m "Adding delta files before release"`;
-			Helpers.run(add, resolve);
+	gitCommand( cmd, message ){
+		return new Promise(function(resolve, reject){
+			console.log(message);
+			Helpers.run(cmd, resolve);
 		});
 	},
+	add(){
+		// return new Promise(function(resolve,reject){
+		// 	console.log("- Adding pending files");
+		// 	let add = `git add . && git commit -m "Adding delta files before release"`;
+		// 	Helpers.run(add, resolve);
+		// });
+	},
 	tag (){
-		let commit = `git tag -a v${info.version} -m "Tag ${info.version}"`,
+		let add = `git add . && git commit -m "Adding delta files before release"`,
+			commit = `git tag -a v${info.version} -m "Tag ${info.version}"`,
 			push = `git push origin v${info.version}`;
-		Helpers.add().then(function(){
-			Helpers.run(commit, function(){
-				console.log("Commit complete");
-				Helpers.run(push, function(){
-					console.log("Tag pushed to origin");	
-				});
-			});
-		});
+		Helpers.gitCommand(add, "- Adding pending files").then( Helpers.gitCommand.apply(commit, "- Commit in progress").then( Helpers.gitCommand.apply(push, "- Pushing to origin") ) )
+		// let commit = `git tag -a v${info.version} -m "Tag ${info.version}"`,
+		// 	push = `git push origin v${info.version}`;
+		// Helpers.add().then(function(){
+		// 	Helpers.run(commit, function(){
+		// 		console.log("Commit complete");
+		// 		Helpers.run(push, function(){
+		// 			console.log("Tag pushed to origin");	
+		// 		});
+		// 	});
+		// });
 		// Helpers.run(add, function(){
 		// 	console.log("Adding all pending files");
 		// 	Helpers.run(commit, function(){
@@ -41,7 +52,7 @@ var Helpers = {
 			}
 		});
 	},
-	getBumpOptionn (){
+	getBumpOption (){
 		let args = process.argv,
 			res = {type: "patch"},
 			opt = (args.length>2) ? args[3] : null;
@@ -59,3 +70,5 @@ var Helpers = {
 		return res;
 	}
 };
+
+module.exports = Helpers;
