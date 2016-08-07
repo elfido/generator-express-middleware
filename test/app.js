@@ -1,6 +1,7 @@
 "use strict";
 var defaultConfig = require("./defaults.json"),
 	os = require("os"),
+	randoms = require("random-string"),
 	should = require("chai").should(),
 	fs = require("fs");
 
@@ -22,11 +23,11 @@ function exists(fn){
 }
 
 describe("When executing Yeoman with a default configuration", function () {
-	let tmpFolder = os.tmpdir()+"/gen-express-";
+	let tmpFolder = os.tmpdir()+"/gen-express-" + randoms();
 	
 	before(function(){
 		printCwd();
-		tmpFolder = fs.mkdtempSync( tmpFolder );
+		fs.mkdirSync( tmpFolder );
 		fs.writeFileSync(tmpFolder+"/project.json", JSON.stringify(defaultConfig), "utf8");
 		console.log(`Temp folder ${tmpFolder}`);
 		process.chdir( tmpFolder );
