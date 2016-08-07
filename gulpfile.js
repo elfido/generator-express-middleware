@@ -60,7 +60,7 @@ var generatorHelpers = {
 		let args = process.argv,
 			res = {type: "patch"},
 			opt = (args.length>3) ? args[3] : null;
-		console.log(opt, args);
+		console.log(args.length,opt, args);
 		if ( opt !== null && generatorHelpers.bumpParams.indexOf(opt)>=0 ){
 			opt = opt.replace("--", "");
 			res = {type: opt};
