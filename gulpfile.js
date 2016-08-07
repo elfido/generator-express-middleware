@@ -60,6 +60,7 @@ var generatorHelpers = {
 		let args = process.argv,
 			res = {type: "patch"},
 			opt = (args.length>2) ? args[3].toLocaleLowerCase() : null;
+		console.log(opt);
 		if ( opt !== null && generatorHelpers.bumpParams.indexOf(opt)>=0 ){
 			opt = opt.replace("--", "");
 			res = {type: opt};
