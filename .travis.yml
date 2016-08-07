@@ -4,4 +4,5 @@ node_js:
     - "6.1"
     - "5.0"
 before_script:
-    - npm install -g gulp-cli
+    - npm install -g gulp-cli yo
+    - npm link
