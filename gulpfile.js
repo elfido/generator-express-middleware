@@ -19,31 +19,33 @@ gulp.task("test", function(cb){
 	});
 });
 
-gulp.task("bump", ["gittag"], function(){
+gulp.task("bump", function(){
 	let type = generatorHelpers.getBumpOption();
 	gulp.src("./package.json")
 	.pipe(bump( type ))
-	.pipe(gulp.dest('./'));
-});
-
-gulp.task("gittag", function(){
-	let info = JSON.parse(fs.readFileSync("package.json")),
-		add = `git add . && git commit -m "Adding delta files before release"`,
-		commit = `git tag -a v${info.version} -m "Tag ${info.version}"`,
-		push = `git push origin v${info.version}`;
-	generatorHelpers.run(add, function(){
-		console.log("Adding all pending files");
-		generatorHelpers.run(commit, function(){
-			console.log("Commit complete");
-			generatorHelpers.run(push, function(){
-				console.log("Tag pushed to origin");	
-			});
-		});
+	.pipe(gulp.dest('./'))
+	.on("end", function(){
+		generatorHelpers.tag();
 	});
 });
 
 var generatorHelpers = {
 	bumpParams: ["--patch", "--minor", "--major", "--prerelease"],
+	tag: function(){
+		let info = JSON.parse(fs.readFileSync("package.json")),
+			add = `git add . && git commit -m "Adding delta files before release"`,
+			commit = `git tag -a v${info.version} -m "Tag ${info.version}"`,
+			push = `git push origin v${info.version}`;
+		generatorHelpers.run(add, function(){
+			console.log("Adding all pending files");
+			generatorHelpers.run(commit, function(){
+				console.log("Commit complete");
+				generatorHelpers.run(push, function(){
+					console.log("Tag pushed to origin");	
+				});
+			});
+		});
+	},
 	run: function(cmd, cb){
 		exec(cmd, function(err, stdout, stderr){
 			console.log(err);

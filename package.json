@@ -1,6 +1,6 @@
 {
   "name": "generator-express-middleware",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Yeoman generator for ExpressJS middleware in ES6 (Requires at least Node 4)",
   "main": "index.js",
   "scripts": {
