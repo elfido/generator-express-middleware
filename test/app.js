@@ -21,7 +21,9 @@ function exists(fn){
 	if (typeof fs.accessSync === "function" && typeof fs.constants !== "undefined"){
 		fs.accessSync(fn, fs.constants.R_OK | fs.constants.F_OK | fs.constants.W_OK);
 		return true;
-	} else return fs.existsSync(fn);
+	} else {
+		return fs.existsSync(fn);
+	}
 }
 
 describe("When executing Yeoman with a default configuration", function () {
