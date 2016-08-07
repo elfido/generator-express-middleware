@@ -6,7 +6,7 @@
 [![NPM](https://nodei.co/npm/generator-express-middleware.png)](https://nodei.co/npm/express-slas/)
 
 # express-middleware-generator
-Yeoman generator for ExpressJS middleware in ES6 (Requires at least Node 4 to work or Node 6 to test)
+Yeoman generator for ExpressJS middleware in ES6 (Requires at least Node 5)
 
 ## Requirements
 * **Node 5** or above
