@@ -46,6 +46,9 @@ var generatorHelpers = {
 	bumpParams: ["--patch", "--minor", "--major", "--prerelease"],
 	run: function(cmd, cb){
 		exec(cmd, function(err, stdout, stderr){
+			console.log(err);
+			console.log(stdout);
+			console.log(stderr);
 			if(!err){
 				cb();
 			} else{
