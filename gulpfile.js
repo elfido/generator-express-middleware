@@ -60,11 +60,8 @@ var generatorHelpers = {
 		let args = process.argv,
 			res = {type: "patch"},
 			opt = (args.length>2) ? args[3] : null;
-		if (opt){
-			opt = opt.toLocaleLowerCase();
-		}
 		if ( opt && opt !== null && generatorHelpers.bumpParams.indexOf(opt)>=0 ){
-			opt = opt.replace("--", "");
+			opt = opt.toLowerCase().replace("--", "");
 			res = {type: opt};
 		}
 		if ( opt && opt !== null && opt.indexOf("--version") === 0){
