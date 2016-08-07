@@ -35,6 +35,9 @@ describe("When executing Yeoman with a default configuration", function () {
 	it("Should create files in templates root", function(done){
 		const execFile = require("child_process").execFile;
 		execFile("yo", ["express-middleware","--usefile"], {timeout: 10000},  (err, stdout, stderr) => {
+			console.log(err);
+			console.log(stdout);
+			console.log(stderr);
 			for (let f of files.root){
 				exists(`${tmpFolder}/${f}`).should.equal(true);
 			}

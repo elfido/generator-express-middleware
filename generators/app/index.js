@@ -6,13 +6,13 @@ var generators = require("yeoman-generator"),
 
 module.exports = generators.Base.extend({
 	
-	constructor (){
+	constructor: function(){
 		generators.Base.apply(this, arguments);
 		this.project = {};
 		this.option("usefile");
 	},
 	
-	readProjectInfo (){
+	readProjectInfo: function(){
 		if (this.options.usefile){
 			let file = fs.readFileSync("project.json", "utf8");
 			this.project = JSON.parse(file);
@@ -53,7 +53,7 @@ module.exports = generators.Base.extend({
 		}
 	},
 	
-	_execute (){
+	_execute: function(){
 		let paths = ["**/*.*", "**/*", "**/.*"];
 		
 		for (let p of paths){
