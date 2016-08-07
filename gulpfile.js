@@ -60,12 +60,14 @@ var generatorHelpers = {
 		let args = process.argv,
 			res = {type: "patch"},
 			opt = (args.length>2) ? args[3] : null;
-		console.log(opt, args);
-		if ( opt !== null && generatorHelpers.bumpParams.indexOf(opt)>=0 ){
+		if (opt){
+			opt = opt.toLocaleLowerCase();
+		}
+		if ( opt && opt !== null && generatorHelpers.bumpParams.indexOf(opt)>=0 ){
 			opt = opt.replace("--", "");
 			res = {type: opt};
 		}
-		if ( opt !== null && opt.indexOf("--version") === 0){
+		if ( opt && opt !== null && opt.indexOf("--version") === 0){
 			let _version = opt.split(":");
 			if (_version.length<1){
 				console.error("Invalid version");
