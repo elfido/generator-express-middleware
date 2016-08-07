@@ -22,7 +22,11 @@ var Helpers = {
 		let add = `git add . && git commit -m "Adding delta files before release"`,
 			commit = `git tag -a v${info.version} -m "Tag ${info.version}"`,
 			push = `git push origin v${info.version}`;
-		Helpers.gitCommand(add, "- Adding pending files").then( Helpers.gitCommand.apply(commit, "- Commit in progress").then( Helpers.gitCommand.apply(push, "- Pushing to origin") ) )
+		Helpers.gitCommand(add, "- Adding pending files").then( function(){
+			Helpers.gitCommand(commit, "- Commit in progress").then( function(){
+				Helpers.gitCommand.apply(push, "- Pushing to origin");
+			}); 
+		});
 		// let commit = `git tag -a v${info.version} -m "Tag ${info.version}"`,
 		// 	push = `git push origin v${info.version}`;
 		// Helpers.add().then(function(){
